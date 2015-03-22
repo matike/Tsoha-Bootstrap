@@ -12,8 +12,8 @@ $routes->get('/tilaus', function() {
     HelloWorldController::tilaus();
 });
 
-$routes->get('/laakarit', function() {
-    HelloWorldController::laakarit();
+$routes->get('/potilaat', function() {
+    HelloWorldController::potilaat();
 });
 
 $routes->get('/laakari', function() {
@@ -34,4 +34,8 @@ $routes->get('/register', function() {
 
 $routes->get('/ohje', function() {
     HelloWorldController::ohje();
+});
+
+$routes->get('/raportti', function() {
+    HelloWorldController::raportti();
 });

@@ -1,43 +1,43 @@
-CREATE TABLE Doctor(
+CREATE TABLE Laakari(
 id SERIAL PRIMARY KEY,
-doctor_name varchar(100) NOT NULL,
-phone varchar(15) NOT NULL,
+nimi varchar(100) NOT NULL,
+puhelin varchar(15) NOT NULL,
 email varchar(100) NOT NULL,
-password varchar(50) NOT NULL
+salasana varchar(50) NOT NULL
 );
 
-CREATE TABLE Patient(
+CREATE TABLE Potilas(
 id SERIAL PRIMARY KEY,
-patient_name varchar(100) NOT NULL,
-address varchar(100) NOT NULL,
+nimi varchar(100) NOT NULL,
+osoite varchar(100) NOT NULL,
 email varchar(100) NOT NULL,
-password varchar(50) NOT NULL
+salasana varchar(50) NOT NULL
 );
 
-CREATE TABLE History(
+CREATE TABLE Historia(
 id SERIAL PRIMARY KEY,
-patient_id INTEGER REFERENCES Patient(id),
-history text
+potilas_id INTEGER REFERENCES Potilas(id),
+historia text
 );
 
-CREATE TABLE Visit(
+CREATE TABLE Kaynti(
 id SERIAL PRIMARY KEY,
-patient_id INTEGER REFERENCES Patient(id),
-doctor_id INTEGER REFERENCES Doctor(id),
-visit_date date
+potilas_id INTEGER REFERENCES Potilas(id),
+laakari_id INTEGER REFERENCES Laakari(id),
+paivamaara date
 );
 
-CREATE TABLE Report(
+CREATE TABLE Raportti(
 id SERIAL PRIMARY KEY,
-visit_id INTEGER REFERENCES Visit(id),
-doctor_id INTEGER REFERENCES Doctor(id),
-patient_id INTEGER REFERENCES Patient(id),
-description text NOT NULL
+kaynti_id INTEGER REFERENCES Kaynti(id),
+laakari_id INTEGER REFERENCES Laakari(id),
+potilas_id INTEGER REFERENCES Potilas(id),
+kuvaus text NOT NULL
 );
 
-CREATE TABLE Regimen(
+CREATE TABLE Ohje(
 id SERIAL PRIMARY KEY,
-patient_id INTEGER REFERENCES Patient(id),
-regimen text NOT NULL,
-regimen_date date
+potilas_id INTEGER REFERENCES Potilas(id),
+ohje text NOT NULL,
+paivamaara date
 );

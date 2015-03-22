@@ -16,8 +16,8 @@ class HelloWorldController extends BaseController {
         View::make('suunnitelmat/tilaus.html');
     }
 
-    public static function laakarit() {
-        View::make('suunnitelmat/laakarit.html');
+    public static function potilaat() {
+        View::make('suunnitelmat/potilaat.html');
     }
 
     public static function laakari() {
@@ -39,5 +39,9 @@ class HelloWorldController extends BaseController {
     public static function potilas() {
         View::make('suunnitelmat/potilas.html');
     }
+
+    public static function raportti() {
+        View::make('suunnitelmat/raportti.html');
+    }
+
 }
-    
