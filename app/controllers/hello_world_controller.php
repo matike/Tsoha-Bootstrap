@@ -32,4 +32,12 @@ class HelloWorldController extends BaseController {
         View::make('suunnitelmat/register.html');
     }
 
+    public static function ohje() {
+        View::make('suunnitelmat/ohje.html');
+    }
+
+    public static function potilas() {
+        View::make('suunnitelmat/potilas.html');
+    }
 }
+    

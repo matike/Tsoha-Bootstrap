@@ -20,6 +20,10 @@ $routes->get('/laakari', function() {
     HelloWorldController::laakari();
 });
 
+$routes->get('/potilas', function() {
+    HelloWorldController::potilas();
+});
+
 $routes->get('/login', function() {
     HelloWorldController::login();
 });
@@ -28,3 +32,6 @@ $routes->get('/register', function() {
     HelloWorldController::register();
 });
 
+$routes->get('/ohje', function() {
+    HelloWorldController::ohje();
+});
