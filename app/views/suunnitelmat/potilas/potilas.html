@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{potilas.nimi}}</h1>
+  <p>
+      <a href="{{base_path}}/potilas/ohje.html"     class="btn btn-danger" role="button">Lisää hoito-ohje</a>        
+  </p>
+  <ul>
+    <li><strong>Osoite:</strong>{{potilas.osoite}}</li>
+    <li><strong>Sähköposti:</strong>{{potilas.email}}</li>
+  </ul>
+  <h1>Historia</h1>
+  <p>
+  </p>
+{% endblock %}

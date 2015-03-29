@@ -13,15 +13,23 @@ $routes->get('/tilaus', function() {
 });
 
 $routes->get('/potilaat', function() {
-    HelloWorldController::potilaat();
+    PotilasController::index();
+});
+
+$routes->post('/potilaat', function() {
+    PotilasController::store();
+});
+
+$routes->get ('/potilas/uusipotilas', function() {
+   PotilasController::uusipotilas(); 
 });
 
 $routes->get('/laakari', function() {
     HelloWorldController::laakari();
 });
 
-$routes->get('/potilas', function() {
-    HelloWorldController::potilas();
+$routes->get('/potilas/:id', function($id) {
+    PotilasController::show($id);
 });
 
 $routes->get('/login', function() {

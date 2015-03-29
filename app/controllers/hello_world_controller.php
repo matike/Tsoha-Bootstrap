@@ -1,5 +1,6 @@
 <?php
 
+
 class HelloWorldController extends BaseController {
 
     public static function index() {
@@ -8,8 +9,11 @@ class HelloWorldController extends BaseController {
     }
 
     public static function sandbox() {
-        // Testaa koodiasi täällä
-        View::make('helloworld.html');
+        $jussi = Potilas::find(1);
+        $potilaat = Potilas::all();
+        Kint::dump($potilaat);
+        Kint::dump($jussi);
+
     }
 
     public static function tilaus() {
@@ -43,5 +47,5 @@ class HelloWorldController extends BaseController {
     public static function raportti() {
         View::make('suunnitelmat/raportti.html');
     }
-
+    
 }

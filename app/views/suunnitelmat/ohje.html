@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Kirjoita hoito-ohje</h1>
-  <form>
+<h1>Kirjoita hoito-ohje</h1>
+<form method="post" action="{{base_path}}/suunnitelmat/ohje">
     <div class="form-group">
-      <label>Potilaan nimi</label>
-      <input class="form-control" value="Jussi" type="text">
+        <label>Potilaan tunnus</label>
+        <input class="form-control" value="1" type="text">
+    </div>
+
+    <div class="form-group">
+        <label>Ohje</label>
+        <textarea class="form-control">Ota lääke kahdesti päivässä.</textarea>
     </div>
     <div class="form-group">
-      <label>Kuvaus</label>
-      <textarea class="form-control">Ota lääke kahdesti päivässä.</textarea>
+        <button type="submit" class="btn btn-primary">Lisää</button>
     </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Tallenna</button>
-    </div>
-  </form>
+</form>
+
 {% endblock %}

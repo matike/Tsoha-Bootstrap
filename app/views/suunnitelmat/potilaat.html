@@ -1,25 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Lääkärit</h1>
+<h1>Potilaat</h1>
 
-  <table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered">
     <thead>
-      <tr>
-        <th>Nimi</th>
-        <th></th>
-      </tr>
+        <tr>
+            <th>Nimi</th>
+            <th></th>
+        </tr>
     </thead>
 
     <tbody>
-      <tr>
-        <td><a href="#">Jussi<</a></td>
-      </tr>
-           <tr>
-        <td><a href="#">Heikki</a></td>
-      </tr>
-           <tr>
-        <td><a href="#">Kari</a></td>
-      </tr>
+        {%for potilas in potilaat%}
+        <tr>
+            <td><a href="{{base_path}}/potilas/{{potilas.id}}">{{potilas.nimi}}</td>
+        </tr>
+        {%endfor%}
     </tbody>
-  </table>
+</table>
+
+
 {% endblock %}
