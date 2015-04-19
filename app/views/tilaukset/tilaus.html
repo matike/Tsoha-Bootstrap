@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %} 
+<h1>Tilaa lääkäri</h1>
+
+<form method ="post" action="{{base_path}}/tilaus">
+    <div class="form-group">
+        <label>Aika(pp.kk.vvvv)</label>
+        <input class="form-control" name="paivamaara" type="text">
+    </div>
+    <div>
+        <label>Lääkäri</label>
+    <select class="form-control" name="laakari">
+        {%for laakari in laakarit%}
+        <option>{{laakari.nimi}}</option>
+        {%endfor%}
+    </select>
+</div>
+<div class="form-group">
+    <label>Oireet</label>
+    <textarea class="form-control" name="oireet">
+    </textarea>
+</div>
+<div class="form-group">
+    <button type="submit" class="btn btn-primary">Tallenna</button>
+</div>
+</form>
+{% endblock %}

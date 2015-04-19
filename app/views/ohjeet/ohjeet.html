@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Hoito-ohjeet</h1>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Nimi</th>
+            <th>Ohje</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {%for ohje in ohjeet%}
+        <tr>
+            <td>{{ohje.paivamaara}}</td>
+            <td>{{ohje.ohje}}</td>
+            <td><a href="{{base_path}}/ohjeet/{{ohje.id}}/destroy" style="display: inline-block;">
+                    <button type="submit" class="btn btn-danger">Poista</button>
+                </td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
+{% endblock %}

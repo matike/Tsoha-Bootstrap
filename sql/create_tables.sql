@@ -1,7 +1,6 @@
 CREATE TABLE Laakari(
 id SERIAL PRIMARY KEY,
 nimi varchar(100) NOT NULL,
-puhelin varchar(15) NOT NULL,
 email varchar(100) NOT NULL,
 salasana varchar(50) NOT NULL
 );
@@ -24,6 +23,7 @@ CREATE TABLE Kaynti(
 id SERIAL PRIMARY KEY,
 potilas_id INTEGER REFERENCES Potilas(id),
 laakari_id INTEGER REFERENCES Laakari(id),
+oireet text,
 paivamaara date
 );
 

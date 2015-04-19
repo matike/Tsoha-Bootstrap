@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{potilas.nimi}}</h1>
+  <ul>
+    <li><strong>Potilaan tunnus:</strong>{{potilas.id}}</li>
+  </ul>
+  <h1>Hoito-ohjeet</h1>
+  <a href="{{base_path}}/potilas/{{potilas.id}}/ohjeet" class="btn btn-danger" role="button">Hoito-ohjeet</a> 
+    <p>
+  </p>  
+
+{% endblock %}

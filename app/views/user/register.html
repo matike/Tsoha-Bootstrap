@@ -2,33 +2,26 @@
 {% block content %}
 <h1>Rekisteröidy</h1>
 
-<form>
+<form method="post" action="{{base_path}}/register">
     <div class="form-group">
         <label>Nimi</label>
-        <input class="form-control" type="text">
+        <input class="form-control" name="nimi" type="text">
     </div>
 
     <div class="form-group">
-        <label>Katuosoite</label>
-        <input class="form-control" type="text">
+        <label>Osoite</label>
+        <input class="form-control" name="osoite" type="text">
     </div>
     
     <div class="form-group">
         <label>Sähköpostiosoite</label>
-        <input class="form-control" type="text">
+        <input class="form-control" name="email" type="text">
     </div>    
 
     <div class="form-group">
         <label>Salasana</label>
-        <input class="form-control" type="password">
+        <input class="form-control" name="salasana" type="password">
     </div>
-
-    <div class="form-group">
-        <label>Salasana uudelleen</label>
-        <input class="form-control" type="password">
-    </div>
-
-
 
     <button type="submit" class="btn btn-primary">Rekisteröidy</button>
 </form>

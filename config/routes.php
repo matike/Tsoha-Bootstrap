@@ -8,20 +8,28 @@ $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
 });
 
+$routes->get('/tilaukset', function() {
+    TilausController::showAll();
+});
+
 $routes->get('/tilaus', function() {
-    HelloWorldController::tilaus();
+    TilausController::index();
+});
+
+$routes->post('/tilaus', function() {
+    TilausController::store();
 });
 
 $routes->get('/potilaat', function() {
-    PotilasController::index();
+    PotilaatController::index();
 });
 
-$routes->post('/potilaat', function() {
-    PotilasController::store();
+$routes->get('/uusiohje', function() {
+    HelloWorldController::uusiOhje();
 });
 
-$routes->get ('/potilas/uusipotilas', function() {
-   PotilasController::uusipotilas(); 
+$routes->post('/uusiohje', function() {
+    OhjeController::store();
 });
 
 $routes->get('/laakari', function() {
@@ -29,21 +37,45 @@ $routes->get('/laakari', function() {
 });
 
 $routes->get('/potilas/:id', function($id) {
-    PotilasController::show($id);
+    PotilaatController::show($id);
 });
 
-$routes->get('/login', function() {
-    HelloWorldController::login();
-});
-
-$routes->get('/register', function() {
-    HelloWorldController::register();
+$routes->get('/potilas/:id/ohjeet', function($id) {
+    OhjeController::index($id);
 });
 
 $routes->get('/ohje', function() {
-    HelloWorldController::ohje();
+    OhjeController::ohje();
 });
 
-$routes->get('/raportti', function() {
-    HelloWorldController::raportti();
+$routes->get('/tilaukset/:id/raportti', function($id) {
+    RaporttiController::index($id);
+});
+
+$routes->post('/tilaukset/:id/raportti', function($id) {
+    RaporttiController::store($id);
+});
+
+$routes->post('/ohjeet/:id/destroy', function($id) {
+    OhjeController::destroy($id);
+});
+
+$routes->get('/login', function() {
+    UserController::login();
+});
+
+$routes->post('/login', function() {
+    UserController::handle_login();
+});
+
+$routes->post('/logout', function() {
+    UserController::logout();
+});
+
+$routes->get('/register', function() {
+    UserController::register();
+});
+
+$routes->post('/register', function() {
+    UserController::handle_register();
 });

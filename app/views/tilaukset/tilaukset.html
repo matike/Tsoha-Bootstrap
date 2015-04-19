@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Tilaukset</h1>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Nimi</th>
+            <th>Potilaan tunnus</th>
+            <th>Oireet</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {%for tilaus in tilaukset%}
+        <tr>
+            <td>{{tilaus.paivamaara}}</td>
+            <td>{{tilaus.potilas_id}}</td>
+            <td>{{tilaus.oireet}}</td>
+            <td><a href="{{base_path}}/tilaukset/{{tilaus.id}}/raportti">
+                        <button type="submit" class="btn btn-danger">Kirjoita raportti</button>
+                </form></td>
+        </tr>-
+        {%endfor%}
+    </tbody>
+</table>
+<h3>{{user_logged_in.nimi}}</h3>
+
+
+{% endblock %}

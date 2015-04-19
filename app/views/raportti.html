@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Kirjoita raportti kotikäynnistä</h1>
+
+  <form method="post" action="{{base_path}}/tilaukset/{{tilaus.id}}/raportti">
+    <div class="form-group">
+    <div class="form-group">
+      <label>Käynnin tunnus</label>
+      <input class="form-control" name="kaynti_id" type="text">
+    </div>
+    <div class="form-group">
+      <label>Raportti</label>
+      <textarea class="form-control" name="raportti" ></textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+  </form>
+{% endblock %}
