@@ -16,12 +16,13 @@ class UserController extends BaseController {
         } else {
             $_SESSION['user'] = $user->id;
 
-            Redirect::to('/', array('message' => 'Tervetuloa takaisin' . $user->nimi . '!'));
+            Redirect::to('/');
         }
     }
 
     public static function logout() {
         $_SESSION['user'] = null;
+        $_SESSION['admin'] = null;
         Redirect::to('/login', array('message' => 'Olet kirjautunut ulos.'));
     }
 
@@ -37,9 +38,10 @@ class UserController extends BaseController {
             'email' => $params['email'],
             'salasana' => $params['salasana']
         ));
-
+        
         $user->save();
-        Redirect::to('/');
+        $newUser = User::findByEmail($params['email']);
+        Redirect::to('/', array('asiakasnumero' => 'asiakasnumerosi on '. $newUser->asiakasnumero));
     }
 
 }

@@ -7,14 +7,14 @@ class TilausController extends BaseController {
         $laakarit = Laakari::all();
 
 
-        View::make('suunnitelmat/tilaus.html', array('laakarit' => $laakarit));
+        View::make('tilaukset/tilaus.html', array('laakarit' => $laakarit));
     }
     
     public static function showAll() {
-        self::check_logged_in();
-        $tilaukset = Tilaus::findByDoctor(BaseController::get_user_logged_in()->id);
+        self::check_logged_in_admin();
+        $tilaukset = Tilaus::findByDoctor(BaseController::get_admin_logged_in()->id);
         $_SESSION['tilaukset']= $tilaukset;
-        View::make('suunnitelmat/tilaukset.html', array('tilaukset' => $tilaukset));
+        View::make('tilaukset/tilaukset.html', array('tilaukset' => $tilaukset));
     }
 
     public static function store() {
@@ -30,8 +30,18 @@ class TilausController extends BaseController {
             'oireet' => $params['oireet']
         ));
         $tilaus->save();
+        
 
-        Redirect::to('/potilaat');
+        Redirect::to('/', array('success' => 'Lääkäri tilattu!'));
     }
 
+    public static function destroy($id) {
+        self::check_logged_in_admin();
+        $tilaus = new Tilaus((array('id'=>$id)));
+        
+        $tilaus->destroy($id);
+        
+        Redirect::to('/tilaukset');
+        
+    }
 }

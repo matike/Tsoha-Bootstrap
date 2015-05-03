@@ -2,7 +2,7 @@
 
 class Raportti extends BaseModel {
 
-    public $id, $potilas_id, $laakari_id, $kaynti_id, $raportti;
+    public $id, $potilas_id, $laakari_id, $kaynti_id, $kuvaus;
 
     public function __construct($attributes) {
         parent::__construct($attributes);
@@ -23,7 +23,7 @@ class Raportti extends BaseModel {
                 'potilas_id' => $row['potilas_id'],
                 'laakari_id' => $row['laakari_id'],
                 'kaynti_id' => $row['kaynti_id'],
-                'raportti' => $row['raportti']
+                'kuvaus' => $row['kuvaus']
             ));
         }
         return $raportti;
@@ -40,7 +40,7 @@ class Raportti extends BaseModel {
                 'potilas_id' => $row['potilas_id'],
                 'laakari_id' => $row['laakari_id'],
                 'kaynti_id' => $row['kaynti_id'],
-                'raportti' => $row['raportti']
+                'kuvaus' => $row['kuvaus']
             ));
 
             return $raportti;
@@ -49,10 +49,12 @@ class Raportti extends BaseModel {
     }
 
     public function save() {
+        $params = $_POST;
 
         $query = DB::connection()->prepare('INSERT INTO Raportti (potilas_id, laakari_id, kaynti_id, kuvaus) VALUES (:potilas_id, :laakari_id, :kaynti_id, :kuvaus) RETURNING id');
-        $query->execute(array('potilas_id' => $this->potilas_id, 'laakari_id' => $this->laakari_id, 'kaynti_id' => $this->kaynti_id, 'kuvaus' => $this->raportti));
+        $query->execute(array('potilas_id' => $this->potilas_id, 'laakari_id' => $this->laakari_id, 'kaynti_id' => $this->kaynti_id, 'kuvaus' => $this->kuvaus));
         $row = $query->fetch();
         $this->id = $row['id'];
+        
     }
 } 

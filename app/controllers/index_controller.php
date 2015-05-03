@@ -1,10 +1,11 @@
 <?php
 
-class HelloWorldController extends BaseController {
+class IndexController extends BaseController {
 
     public static function index() {
-        // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
-        View::make('home.html');
+        $user = self::get_user_logged_in();
+        
+        View::make('home.html', array('user'=> $user));
     }
 
     public static function sandbox() {
@@ -35,7 +36,6 @@ class HelloWorldController extends BaseController {
     }
 
     public static function uusiOhje() {
-        View::make('ohjeet/uusiohje.html');
     }
 
     public static function potilas() {

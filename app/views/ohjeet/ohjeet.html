@@ -14,9 +14,13 @@
         <tr>
             <td>{{ohje.paivamaara}}</td>
             <td>{{ohje.ohje}}</td>
-            <td><a href="{{base_path}}/ohjeet/{{ohje.id}}/destroy" style="display: inline-block;">
+            <td><form method="POST" action="{{base_path}}/potilas/{{ohje.potilas_id}}/ohjeet/{{ohje.id}}/destroy" style="display: inline-block;">
                     <button type="submit" class="btn btn-danger">Poista</button>
-                </td>
+                </form>
+            </td>
+
+            <td>  <a href="{{base_path}}/potilas/{{ohje.potilas_id}}/ohjeet/{{ohje.id}}/edit" class="btn btn-danger" role="button">Muokkaa</a>
+            </td>
         </tr>
         {%endfor%}
     </tbody>

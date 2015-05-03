@@ -44,6 +44,29 @@ class Historia extends BaseModel {
         return null;
     }
 
+    public static function findByPotilasId($id) {
+        $query = DB::connection()->prepare('SELECT * FROM Historia WHERE potilas_id = :id LIMIT 1');
+        $query->execute(array('id' => $id));
+        $row = $query->fetch();
+
+        if ($row) {
+            $historia = new Historia(array(
+                'id' => $row['id'],
+                'potilas_id' => $row['potilas_id'],
+                'historia' => $row['historia']
+            ));
+
+            return $historia;
+        }
+        return null;
+    }
+
+    public function update() {
+
+        $query = DB::connection()->prepare('UPDATE Historia SET historia=:historia WHERE id = :id');
+        $query->execute(array('id' => $this->id, 'historia' => $this->historia));
+    }
+
     public function save() {
 
         $query = DB::connection()->prepare('INSERT INTO Historia (potilas_id, historia) VALUES (:potilas_id, :historia) RETURNING id');
@@ -52,10 +75,9 @@ class Historia extends BaseModel {
         $this->id = $row['id'];
     }
 
-    public function destroy($id) {
+    public function destroy() {
         $query = DB::connection()->prepare('DELETE FROM Historia WHERE id = :id');
-        $query->execute(array('id' => $id));
-        $row = $query->fetch();
+        $query->execute(array('id' => $this->id));
     }
 
 }

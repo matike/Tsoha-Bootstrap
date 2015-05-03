@@ -1,6 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Hoito-ohjeet</h1>
-
+<form method="POST" action="{{base_path}}/potilas/{{potilas.id}}/historia">
+    <div class="form-group">
+        <label>Historia</label>
+        <textarea class="form-control" name="historia">{{historia.historia}}</textarea>
+    </div>
+    <input type="hidden" name="potilas_id" value="{{historia.potilas_id}}">
+    <input type="hidden" name="id" value="{{historia.id}}">
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+</form>
+<form method="post" action="{{base_path}}/potilas/{{potilas.id}}/historia/destroy" style="display: inline-block;">
+    <input type="hidden" name="id" value="{{historia.id}}">
+    <button type="submit" class="btn btn-danger">Poista</button>
+</form>
 
 {% endblock %}

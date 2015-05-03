@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" action="{{base_path}}/potilas/{{ohje.potilas_id}}/ohjeet/{{ohje.id}}/edit">
+    <div class="form-group">
+        <label>Hoito-ohje</label>
+        <textarea class="form-control" name="ohje">{{ohje.ohje}}</textarea>
+    </div>
+    <input type="hidden" name="potilas_id" value="{{ohje.potilas_id}}">
+        <input type="hidden" name="paivamaara" value="{{ohje.paivamaara}}">
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+    {%endblock%}

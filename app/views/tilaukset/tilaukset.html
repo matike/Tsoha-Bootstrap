@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+        {% extends "base.html" %}
 {% block content %}
 <h1>Tilaukset</h1>
 
@@ -8,6 +8,7 @@
             <th>Nimi</th>
             <th>Potilaan tunnus</th>
             <th>Oireet</th>
+            
         </tr>
     </thead>
 
@@ -18,8 +19,8 @@
             <td>{{tilaus.potilas_id}}</td>
             <td>{{tilaus.oireet}}</td>
             <td><a href="{{base_path}}/tilaukset/{{tilaus.id}}/raportti">
-                        <button type="submit" class="btn btn-danger">Kirjoita raportti</button>
-                </form></td>
+                    <button type="submit" class="btn btn-danger">Kirjoita raportti</button>
+            </td>
         </tr>-
         {%endfor%}
     </tbody>

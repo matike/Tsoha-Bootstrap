@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Raportit</h1>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Käynnin tunnus</th>
+            <th>Potilaan tunnus</th>
+            <th>Lääkärin tunnus</th>
+            <th>Kuvaus</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {%for raportti in raportit%}
+        <tr>
+            <td>{{raportti.kaynti_id}}</td>
+            <td>{{raportti.potilas_id}}</td>
+            <td>{{raportti.laakari_id}}</td>
+            <td>{{raportti.kuvaus}}</td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
+
+{% endblock %}

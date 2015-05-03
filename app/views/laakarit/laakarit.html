@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Potilaat</h1>
+<h1>Lääkärimme</h1>
 
 <table class="table table-striped table-bordered">
     <thead>
@@ -11,9 +11,9 @@
     </thead>
 
     <tbody>
-        {%for potilas in potilaat%}
+        {%for laakari in laakarit%}
         <tr>
-            <td><a href="{{base_path}}/potilas/{{potilas.id}}">{{potilas.nimi}}</td>
+            <td><a href="{{base_path}}/laakari/{{laakari.id}}">{{laakari.nimi}}</td>
         </tr>
         {%endfor%}
     </tbody>

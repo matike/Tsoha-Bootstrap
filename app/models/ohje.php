@@ -89,7 +89,12 @@ class Ohje extends BaseModel {
     public function destroy($id) {
         $query = DB::connection()->prepare('DELETE FROM Ohje WHERE id = :id');
         $query->execute(array('id' => $id));
-        $row = $query->fetch();
     }
 
-}
+
+ public function update() {
+
+        $query = DB::connection()->prepare('UPDATE Ohje SET ohje=:ohje WHERE id = :id');
+        $query->execute(array('id' => $this->id, 'ohje' => $this->ohje));
+    }
+    }

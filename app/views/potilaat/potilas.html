@@ -5,8 +5,13 @@
     <li><strong>Potilaan tunnus:</strong>{{potilas.id}}</li>
   </ul>
   <h1>Hoito-ohjeet</h1>
-  <a href="{{base_path}}/potilas/{{potilas.id}}/ohjeet" class="btn btn-danger" role="button">Hoito-ohjeet</a> 
+  <a href="{{base_path}}/potilas/{{potilas.id}}/ohjeet" class="btn btn-danger" role="button">Hoito-ohjeet</a>
+  <a href="{{base_path}}/potilas/{{potilas.id}}/uusiohje" class="btn btn-danger" role="button">Lisää hoito-ohje</a>
     <p>
-  </p>  
-
+  </p> 
+  <h1>Historia</h1>
+  <p>{{historia.historia}}</p>  
+   <p></p>
+   <a href="{{base_path}}/potilas/{{potilas.id}}/historia" class="btn btn-danger" role="button">Muokkaa historiaa</a>
+    
 {% endblock %}

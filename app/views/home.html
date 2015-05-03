@@ -1,14 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="page-header">
+<div class="page-header">
     <h1>Tervetuloa Medihome-kotilääkäripalveluun!</h1>
-  </div>
-
-  <p>
+</div>
+{%if user_logged_in%}
+<h2>{{user.nimi}}</h2>
+<p>
+    <a href="{{base_path}}/omasivu" class="btn btn-primary btn-lg">Lue hoito-ohjeita <span class="glyphicon glyphicon-chevron-right"></span></a>
+</p>
+{%else%}
+<p>
     <a href="{{base_path}}/login" class="btn btn-primary btn-lg">Kirjaudu sisään <span class="glyphicon glyphicon-chevron-right"></span></a>
-  </p>
-  <p>
+</p>
+<p>
     <a href="{{base_path}}/register" class="btn btn-primary btn-lg">Rekisteröidy <span class="glyphicon glyphicon-chevron-right"></span></a>
-  </p>
+</p>
+<p>
+    <a href="{{base_path}}/adminlogin" class="btn btn-primary btn-lg">Kirjaudu sisään lääkärinä <span class="glyphicon glyphicon-chevron-right"></span></a>
+</p>
+{%endif%}
+
+<p>
+    <a href="{{base_path}}/laakarit" class="btn btn-primary btn-lg">Tutustu lääkäreihimme<span class="glyphicon glyphicon-chevron-right"></span></a>
+</p>
+
+<h3> {{success}}</h3>
+<h3> {{asiakasnumero}}</h3>
+
+
 {% endblock %}

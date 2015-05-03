@@ -2,7 +2,7 @@
 
 class Laakari extends BaseModel {
 
-    public $id, $nimi, $email, $salasana;
+    public $id, $nimi, $email, $salasana, $kuvaus;
 
     public function __construct($attributes) {
         parent::__construct($attributes);
@@ -20,6 +20,7 @@ class Laakari extends BaseModel {
                 'nimi' => $row['nimi'],
                 'email' => $row['email'],
                 'salasana' => $row['salasana'],
+                'kuvaus' => $row['kuvaus']
             ));
         }
 
@@ -37,6 +38,7 @@ class Laakari extends BaseModel {
                 'nimi' => $row['nimi'],
                 'email' => $row['email'],
                 'salasana' => $row['salasana'],
+                'kuvaus' => $row['kuvaus']
             ));
             return $laakari;
         }
@@ -54,6 +56,7 @@ class Laakari extends BaseModel {
                 'nimi' => $row['nimi'],
                 'email' => $row['email'],
                 'salasana' => $row['salasana'],
+                'kuvaus' => $row['kuvaus']
             ));
             return $laakari;
         }

@@ -1,21 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Potilaat</h1>
-
+<h1>Hoito-ohjeeni</h1>
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>Nimi</th>
-            <th></th>
+            <th>Paivamaara</th>
+            <th>Ohje</th>
         </tr>
     </thead>
 
     <tbody>
-        {%for potilas in potilaat%}
+        {%for ohje in ohjeet%}
         <tr>
-            <td><a href="{{base_path}}/potilas/{{potilas.id}}">{{potilas.nimi}}</td>
+            <td>{{ohje.paivamaara}}</td>
+            <td>{{ohje.ohje}}</td>
+
         </tr>
         {%endfor%}
     </tbody>
 </table>
+
 {% endblock %}

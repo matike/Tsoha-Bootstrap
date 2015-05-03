@@ -1,12 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Lisää hoito-ohje</h1>
-<form method="post" action="{{base_path}}/uusiohje">
-    <div class="form-group">
-        <label>Potilaan tunnus</label>
-        <input name ="potilas_id" class="form-control" type="text">
-    </div>
+<h1>Lisää hoito-ohje potilaalle {{potilas.nimi}}</h1>
+<form method="post" action="{{base_path}}/potilas/{{potilas.id}}/uusiohje">
+
     <div class="form-group">
         <label>Päivämäärä</label>
         <input name ="paivamaara" class="form-control" type="text">

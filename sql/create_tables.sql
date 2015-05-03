@@ -2,11 +2,13 @@ CREATE TABLE Laakari(
 id SERIAL PRIMARY KEY,
 nimi varchar(100) NOT NULL,
 email varchar(100) NOT NULL,
-salasana varchar(50) NOT NULL
+salasana varchar(50) NOT NULL,
+kuvaus text
 );
 
 CREATE TABLE Potilas(
 id SERIAL PRIMARY KEY,
+asiakasnumero smallint, 
 nimi varchar(100) NOT NULL,
 osoite varchar(100) NOT NULL,
 email varchar(100) NOT NULL,

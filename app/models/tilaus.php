@@ -44,16 +44,21 @@ class Tilaus extends BaseModel {
 
         if ($row) {
             $kaynti = new Tilaus(array(
-                    'id' => $row['id'],
-                    'laakari_id' => $row['laakari_id'],
-                    'potilas_id' => $row['potilas_id'],
-                    'oireet' => $row['oireet'],
-                    'paivamaara' => $row['paivamaara']
+                'id' => $row['id'],
+                'laakari_id' => $row['laakari_id'],
+                'potilas_id' => $row['potilas_id'],
+                'oireet' => $row['oireet'],
+                'paivamaara' => $row['paivamaara']
             ));
 
             return $kaynti;
         }
         return null;
+    }
+
+    public static function destroy($id) {
+        $query = DB::connection()->prepare('DELETE FROM Kaynti WHERE id = :id');
+        $query->execute(array('id' => $id));
     }
 
 }
